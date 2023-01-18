@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const Main());
@@ -54,6 +55,7 @@ class _HomePageState extends State<_HomePage> {
       ),
       body: GestureDetector(
         onTap: () {
+          HapticFeedback.selectionClick();
           setState(() {
             isTaped = true;
 
@@ -65,6 +67,7 @@ class _HomePageState extends State<_HomePage> {
           });
         },
         onLongPress: () {
+          HapticFeedback.vibrate();
           setState(() {
             isTaped = false;
           });
